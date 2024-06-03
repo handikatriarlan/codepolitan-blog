@@ -13,6 +13,6 @@ class HelloController extends Controller
 
     function world_message()
     {
-        echo "World";
+        echo "Hello World";
     }
 }
