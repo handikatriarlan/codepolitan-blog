@@ -10,6 +10,10 @@ class HelloController extends Controller
     {
         echo "Hello";
     }
+    function create()
+    {
+        echo "Hello";
+    }
 
     function world_message()
     {

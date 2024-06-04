@@ -11,7 +11,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        echo "List dari Post";
     }
 
     /**
@@ -35,7 +35,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        echo "Halaman detail dari post $id";
     }
 
     /**
