@@ -26,13 +26,14 @@
 <body>
     <div class="container">
         <h1>Blog Codepolitan</h1>
-        @php($number = 1)
         @foreach ($posts as $post)
-            <div class="blog">
-                <h3>{{ $post[0] }} <small>#{{ $number }}</small></h3>
-                <p>{{ $post[1] }}</p>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $post[0] }}</h5>
+                    <p class="card-text">{{ $post[1] }}</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
             </div>
-            @php($number++)
         @endforeach
     </div>
 </body>
