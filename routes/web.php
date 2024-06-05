@@ -20,3 +20,4 @@ Route::get('/', function () {
 // Route::post('hello', [HelloController::class, 'create']);
 // Route::get('world', [HelloController::class, 'world_message']);
 
+Route::get('posts', [PostController::class, 'index']);
