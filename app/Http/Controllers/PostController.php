@@ -13,6 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Storage::get('posts.txt');
+        $posts = explode("\n", $posts);
         echo $posts;
         exit;
         $view_data = [
