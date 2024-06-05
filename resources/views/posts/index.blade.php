@@ -32,6 +32,7 @@
                     <h5 class="card-title">{{ $post[0] }}</h5>
                     <p class="card-text">{{ $post[1] }}</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <a href="#" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         @endforeach
