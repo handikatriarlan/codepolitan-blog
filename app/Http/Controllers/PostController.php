@@ -72,7 +72,15 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $selected_post = DB::table('posts')
+            ->select('id', 'title', 'content', 'updated_at')
+            ->where('id', '=', $id)
+            ->first();
+
+        $view_data = [
+            'post' => $selected_post
+        ];
+        return view('posts.edit', $view_data);
     }
 
     /**

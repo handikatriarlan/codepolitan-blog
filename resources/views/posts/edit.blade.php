@@ -11,18 +11,28 @@
     <script src="{{ asset('bootstrap-5/js/bootstrap.bundle.min.js') }}"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <title>Blog | Judul: {{ $post->title }}</title>
+    <title>Blog | Edit Postingan</title>
 </head>
 
 <body>
     <div class="container content mt-5">
-        <article class="blog-post">
-            <h1 class="mb-1">{{ $post->title }}</h1>
-            <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post->updated_at)) }}</p>
-            <p>{{ $post->content }}</p>
-        </article>
-        <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-warning">Edit</a>
-        <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
+        <h1 class="mb-4">Edit Postingan</h1>
+        <form action="{{ url("posts/{$post->id}") }}" method="POST">
+            @method('PATCH')
+            @csrf
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Judul</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Konten</label>
+                <textarea style="resize: none" class="form-control" id="content" rows="5" name="content" required>{{ $post->content }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            <a href="{{ url("posts/$post->id") }}" class="btn btn-secondary">Kembali</a>
+        </form>
     </div>
 
     <footer class="footer text-center text-lg-start mt-5">
