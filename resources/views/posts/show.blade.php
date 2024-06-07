@@ -17,7 +17,7 @@
 <body>
     <div class="container content mt-5">
         <article class="blog-post">
-            <h2 class="display-5 mb-1">{{ $post[1] }}</h2>
+            <h1 class="mb-1">{{ $post[1] }}</h1>
             <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post[3])) }}</p>
             <p>{{ $post[2] }}</p>
         </article>
