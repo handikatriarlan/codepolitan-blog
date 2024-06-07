@@ -35,7 +35,7 @@
         @endforeach
     </div>
 
-    <footer class="footer text-center text-lg-start mt-5">
+    <footer class="footer text-center text-lg-start">
         <div class="container p-4">
             <p class="text-center mb-0">© 2024 Blog Codepolitan. All rights reserved.</p>
         </div>
