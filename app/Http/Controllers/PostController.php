@@ -14,7 +14,9 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = DB::table('posts')->select('id', 'title', 'content', 'updated_at')->get();
+        $posts = DB::table('posts')
+            ->select('id', 'title', 'content', 'updated_at')
+            ->get();
         $view_data = [
             'posts' => $posts
         ];
@@ -38,12 +40,13 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
 
-        DB::table('posts')->insert([
-            'title' => $title,
-            'content' => $content,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
+        DB::table('posts')
+            ->insert([
+                'title' => $title,
+                'content' => $content,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
 
         return redirect('posts');
     }
@@ -53,15 +56,11 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $posts = Storage::get('posts.txt');
-        $posts = explode("\n", $posts);
-        $selected_post = array();
-        foreach ($posts as $post) {
-            $post = explode(",", $post);
-            if ($post[0] == $id) {
-                $selected_post = $post;
-            }
-        }
+        $selected_post = DB::table('posts')
+            ->select('id', 'title', 'content', 'updated_at')
+            ->where('id', '=', $id)
+            ->first();
+
         $view_data = [
             'post' => $selected_post
         ];

@@ -11,15 +11,15 @@
     <script src="{{ asset('bootstrap-5/js/bootstrap.bundle.min.js') }}"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <title>Blog | Judul: {{ $post[1] }}</title>
+    <title>Blog | Judul: {{ $post->title }}</title>
 </head>
 
 <body>
     <div class="container content mt-5">
         <article class="blog-post">
-            <h1 class="mb-1">{{ $post[1] }}</h1>
-            <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post[3])) }}</p>
-            <p>{{ $post[2] }}</p>
+            <h1 class="mb-1">{{ $post->title }}</h1>
+            <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post->updated_at)) }}</p>
+            <p>{{ $post->content }}</p>
         </article>
         <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
     </div>
