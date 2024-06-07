@@ -11,12 +11,12 @@
     <script src="{{ asset('bootstrap-5/js/bootstrap.bundle.min.js') }}"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <title>Blog | Buat Postingan</title>
+    <title>Blog | Tambah Postingan</title>
 </head>
 
 <body>
     <div class="container content mt-5">
-        <h1 class="mb-4">Buat Postingan Baru</h1>
+        <h1 class="mb-4">Tambah Postingan</h1>
         <form action="{{ url('posts') }}" method="POST">
             @csrf
 

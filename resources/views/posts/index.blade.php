@@ -18,7 +18,7 @@
     <div class="container mt-5">
         <h1 class="mb-4 d-flex justify-content-between align-items-center">
             Blog Codepolitan
-            <a class="btn btn-success" href="{{ url('posts/create') }}">Buat Postingan</a>
+            <a class="btn btn-success" href="{{ url('posts/create') }}">Tambah Postingan</a>
         </h1>
         @foreach ($posts as $post)
             @php($post = explode(',', $post))
