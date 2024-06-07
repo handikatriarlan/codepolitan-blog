@@ -15,24 +15,30 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>
+    <div class="container mt-5">
+        <h1 class="mb-4 d-flex justify-content-between align-items-center">
             Blog Codepolitan
             <a class="btn btn-success" href="{{ url('posts/create') }}">Buat Postingan</a>
         </h1>
         @foreach ($posts as $post)
             @php($post = explode(',', $post))
-            <div class="card mb-3">
+            <div class="card mb-3 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ $post[1] }}</h5>
                     <p class="card-text">{{ $post[2] }}</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated at
+                    <p class="card-text"><small class="text-muted">Last updated at
                             {{ date('d M Y H:i', strtotime($post[3])) }}</small></p>
                     <a href="{{ url("posts/$post[0]") }}" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         @endforeach
     </div>
+
+    <footer class="footer text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p class="text-center mb-0">© 2024 Blog Codepolitan. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

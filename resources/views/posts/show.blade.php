@@ -15,16 +15,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container content mt-5">
         <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">{{ $post[1] }}</h2>
-            <p class="blog-post-meta">{{ date('d M Y H:i', strtotime($post[3])) }}</p>
-
+            <h2 class="display-5 mb-1">{{ $post[1] }}</h2>
+            <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post[3])) }}</p>
             <p>{{ $post[2] }}</p>
         </article>
-        <a href="{{ url('posts') }}">
-            < Kembali</a>
+        <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
     </div>
+
+    <footer class="footer text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p class="text-center mb-0">© 2024 Blog Codepolitan. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
