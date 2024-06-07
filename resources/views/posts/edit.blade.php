@@ -17,7 +17,7 @@
 <body>
     <div class="container content mt-5">
         <h1 class="mb-4">Edit Postingan</h1>
-        <form action="{{ url("posts/{$post->id}") }}" method="POST">
+        <form action="{{ url("posts/$post->id") }}" method="POST">
             @method('PATCH')
             @csrf
 

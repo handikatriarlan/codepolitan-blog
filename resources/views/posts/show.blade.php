@@ -22,6 +22,9 @@
             <p>{{ $post->content }}</p>
         </article>
         <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-warning">Edit</a>
+        <form action="{{ url("posts/$post->id") }}" method="POST">
+            <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-danger">Hapus</a>
+        </form>
         <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
     </div>
 
