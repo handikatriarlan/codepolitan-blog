@@ -21,11 +21,15 @@
             <p class="blog-post-meta text-muted">{{ date('d M Y H:i', strtotime($post->updated_at)) }}</p>
             <p>{{ $post->content }}</p>
         </article>
-        <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-warning">Edit</a>
-        <form action="{{ url("posts/$post->id") }}" method="POST">
-            <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-danger">Hapus</a>
-        </form>
-        <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
+        <div class="btn-container">
+            <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-info">Edit</a>
+            <form action="{{ url("posts/$post->id") }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger">Hapus</button>
+            </form>
+            <a href="{{ url('posts') }}" class="btn btn-secondary">Kembali</a>
+        </div>
     </div>
 
     <footer class="footer text-center text-lg-start mt-5">
