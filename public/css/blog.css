@@ -52,3 +52,12 @@ h6 {
     margin-bottom: 1.25rem;
     color: #727272;
 }
+
+.blog {
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+small {
+    color: grey;
+}
