@@ -23,6 +23,8 @@
         @foreach ($posts as $post)
             <div class="card mb-3 shadow-sm">
                 <div class="card-body">
+                    <p class="card-text"><small class="text-muted">Created at
+                            {{ date('d M Y H:i', strtotime($post->created_at)) }}</small></p>
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text">{{ $post->content }}</p>
                     <p class="card-text"><small class="text-muted">Last updated at

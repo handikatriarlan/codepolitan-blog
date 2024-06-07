@@ -15,7 +15,7 @@ class PostController extends Controller
     {
 
         $posts = DB::table('posts')
-            ->select('id', 'title', 'content', 'updated_at')
+            ->select('id', 'title', 'content', 'created_at', 'updated_at')
             ->get();
         $view_data = [
             'posts' => $posts
@@ -58,7 +58,7 @@ class PostController extends Controller
     {
         $selected_post = DB::table('posts')
             ->select('id', 'title', 'content', 'updated_at')
-            ->where('id', '=', $id)
+            ->where('id', $id)
             ->first();
 
         $view_data = [
@@ -74,7 +74,7 @@ class PostController extends Controller
     {
         $selected_post = DB::table('posts')
             ->select('id', 'title', 'content', 'updated_at')
-            ->where('id', '=', $id)
+            ->where('id', $id)
             ->first();
 
         $view_data = [
@@ -88,7 +88,18 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $title = $request->input('title');
+        $content = $request->input('content');
+
+        DB::table('posts')
+            ->where('id', $id)
+            ->update([
+                'title' => $title,
+                'content' => $content,
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+
+        return redirect("posts/{$id}");
     }
 
     /**
