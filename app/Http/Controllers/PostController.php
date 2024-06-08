@@ -40,8 +40,8 @@ class PostController extends Controller
         $content = $request->input('content');
 
         Post::insert([
-            'title' => $title,
-            'content' => $content,
+            'title'      => $title,
+            'content'    => $content,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -59,8 +59,8 @@ class PostController extends Controller
         $total_comments = $selected_post->total_comments();
 
         $view_data = [
-            'post' => $selected_post,
-            'comments' => $comments,
+            'post'           => $selected_post,
+            'comments'       => $comments,
             'total_comments' => $total_comments
         ];
         return view('posts.show', $view_data);
@@ -88,8 +88,8 @@ class PostController extends Controller
         $content = $request->input('content');
 
         Post::where('id', $id)->update([
-            'title' => $title,
-            'content' => $content,
+            'title'      => $title,
+            'content'    => $content,
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
