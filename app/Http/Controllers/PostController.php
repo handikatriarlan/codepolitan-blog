@@ -55,9 +55,11 @@ class PostController extends Controller
     public function show(string $id)
     {
         $selected_post = Post::where('id', $id)->first();
+        $comments = $selected_post->comments()->limit(2)->get();
 
         $view_data = [
-            'post' => $selected_post
+            'post' => $selected_post,
+            'comments' => $comments
         ];
         return view('posts.show', $view_data);
     }

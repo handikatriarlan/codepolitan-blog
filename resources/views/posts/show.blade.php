@@ -18,8 +18,18 @@
     <div class="container content mt-5">
         <article class="blog-post">
             <h1 class="mb-1">{{ $post->title }}</h1>
-            <p class="blog-post-meta text-muted">Last Update at {{ date('d M Y H:i', strtotime($post->updated_at)) }}</p>
+            <p class="blog-post-meta text-muted">Last Update at {{ date('d M Y H:i', strtotime($post->updated_at)) }}
+            </p>
+
             <p>{{ $post->content }}</p>
+
+            @foreach ($comments as $comment)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p style="font-size: 10pt;">{{ $comment->comment }}</p>
+                    </div>
+                </div>
+            @endforeach
         </article>
         <div class="btn-container">
             <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-info">Edit</a>
