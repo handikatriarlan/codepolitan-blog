@@ -23,6 +23,8 @@
 
             <p>{{ $post->content }}</p>
 
+            <small class="text-muted">{{ $total_comments }} Komentar</small>
+
             @foreach ($comments as $comment)
                 <div class="card mb-3">
                     <div class="card-body">
