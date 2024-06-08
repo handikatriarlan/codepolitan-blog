@@ -20,22 +20,29 @@
             <h1 class="mb-1">{{ $post->title }}</h1>
             <p class="blog-post-meta text-muted">Last Update at {{ date('d M Y H:i', strtotime($post->updated_at)) }}
             </p>
-
             <p>{{ $post->content }}</p>
 
-            <small class="text-muted">{{ $total_comments }} Komentar</small>
-
-            @foreach ($comments as $comment)
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <p style="font-size: 10pt;">{{ $comment->comment }}</p>
+            <div class="comments-section mt-5">
+                <h5>{{ $total_comments }} Komentar</h5>
+                @foreach ($comments as $comment)
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="{{ asset('images/profile.png') }}" alt="User Avatar" class="rounded-circle me-2"
+                                    width="40" height="40">
+                                <strong>Pengguna anonim</strong>
+                            </div>
+                            <p class="card-text">{{ $comment->comment }}</p>
+                            <small class="text-muted">{{ date('d M Y H:i', strtotime($comment->created_at)) }}</small>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </article>
-        <div class="btn-container">
+
+        <div class="btn-container mt-4">
             <a href="{{ url("posts/$post->id/edit") }}" class="btn btn-info">Edit</a>
-            <form action="{{ url("posts/$post->id") }}" method="POST">
+            <form action="{{ url("posts/$post->id") }}" method="POST" class="d-inline">
                 @method('DELETE')
                 @csrf
                 <button type="submit" class="btn btn-danger">Hapus</button>

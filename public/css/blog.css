@@ -2,6 +2,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .blog-header-logo:hover {
@@ -50,11 +52,43 @@ small {
 
 .btn-container {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    justify-content: flex-start;
 }
 
 .footer {
     background-color: #f9f9f9;
     padding: 1px 0;
     margin-top: auto;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.comments-section {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body p {
+    margin-bottom: 5px;
+}
+
+img.rounded-circle {
+    border: 2px solid black;
+}
+
+strong {
+    font-size: 14px;
 }
