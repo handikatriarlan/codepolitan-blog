@@ -16,9 +16,9 @@
 
 <body>
     <div class="container content mt-5">
-        <article class="blog-post">
-            <h1 class="mb-1">{{ $post->title }}</h1>
-            <p class="blog-post-meta text-muted">Last Update at {{ date('d M Y H:i', strtotime($post->updated_at)) }}
+        <article class="blog-post card shadow-lg p-4 mb-5 bg-white rounded">
+            <h1 class="mb-3 border-bottom pb-2">{{ $post->title }}</h1>
+            <p class="blog-post-meta text-muted">Last updated at {{ date('d M Y H:i', strtotime($post->updated_at)) }}
             </p>
             <p>{{ $post->content }}</p>
 
@@ -28,8 +28,8 @@
                     <div class="card mb-3 shadow-sm">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-2">
-                                <img src="{{ asset('images/profile.png') }}" alt="User Avatar" class="rounded-circle me-2"
-                                    width="40" height="40">
+                                <img src="{{ asset('images/profile.png') }}" alt="User Avatar"
+                                    class="rounded-circle me-2" width="40" height="40">
                                 <strong>Pengguna anonim</strong>
                             </div>
                             <p class="card-text">{{ $comment->comment }}</p>

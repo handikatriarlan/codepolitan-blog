@@ -30,16 +30,15 @@ body {
 
 .blog-post {
     margin-bottom: 4rem;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .blog-post-meta {
     margin-bottom: 1.25rem;
     color: #727272;
-}
-
-.blog {
-    padding: 5px;
-    border-bottom: 1px solid lightgray;
 }
 
 small {
@@ -70,7 +69,7 @@ small {
     background-color: #ffffff;
     border-radius: 5px;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .card {
@@ -91,4 +90,16 @@ img.rounded-circle {
 
 strong {
     font-size: 14px;
+}
+
+.blog-post h1 {
+    font-size: 2rem;
+}
+
+.blog-post p {
+    font-size: 1rem;
+}
+
+.comments-section h5 {
+    font-size: 1.5rem;
 }
