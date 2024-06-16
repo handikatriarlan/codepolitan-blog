@@ -7,7 +7,10 @@
     </ul>
 
     <div class="col-md-3 text-end">
-        <a href="{{ url('login') }}" class="btn btn-outline-primary me-2">Login</a>
-        <a href="{{ url('logout') }}" class="btn btn-primary me-2">Logout</a>
+        @if (Auth::check())
+            <a href="{{ url('logout') }}" class="btn btn-outline-primary me-2">Logout</a>
+        @else
+            <a href="{{ url('login') }}" class="btn btn-outline-primary me-2">Login</a>
+        @endif
     </div>
 </header>
