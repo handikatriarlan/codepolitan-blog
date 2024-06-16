@@ -7,6 +7,6 @@
     </ul>
 
     <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <a href="{{ url('login') }}" class="btn btn-outline-primary me-2">Login</a>
     </div>
 </header>
