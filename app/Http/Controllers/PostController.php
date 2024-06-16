@@ -53,12 +53,12 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
 
-        Post::create([
+        $post = Post::create([
             'title'      => $title,
             'content'    => $content
         ]);
 
-        Mail::to('admincodepolitan@gmail.com')->send(new BlogPosted());
+        Mail::to(Auth::user()->email)->send(new BlogPosted($post));
 
         return redirect('posts');
     }
