@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -14,7 +12,13 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate(){
-        
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('posts');
+        } else {
+            return redirect('login')->with('error_message', 'Wrong Email or Password');
+        }
     }
 }
