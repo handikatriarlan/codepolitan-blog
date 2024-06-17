@@ -61,6 +61,8 @@ class PostController extends Controller
 
         Mail::to(Auth::user()->email)->send(new BlogPosted($post));
 
+        $this->notify_telegram($post);
+
         return redirect('posts');
     }
 
@@ -135,5 +137,21 @@ class PostController extends Controller
         Post::where('id', $id)->delete();
 
         return redirect('posts');
+    }
+
+    private function notify_telegram($post)
+    {
+        $api_token = "7342729107:AAEEgPpk6wTyOYDSLFsY1Ny58y9LC0hae-4";
+        $url = "https://api.telegram.org/bot{$api_token}/sendMessage";
+        $chat_id = -1002166070702;
+        $content = "Ada postingan baru nih di blog kamu dengan judul: <strong>\"{$post->title}\"</strong>";
+
+        $data = [
+            'chat_id'       => $chat_id,
+            'text'          => $content,
+            'parse_mode'    => "HTML"
+        ];
+
+        Http::post($url, $data);
     }
 }
